@@ -16,7 +16,7 @@ urlpatterns = [
     path('bot/', include('bot.urls')),
 
     path("contactos/", include("contactos.urls")),
-    path("api/contactos/", include("contactos.api_urls")), #Contactos API
+    path("api/contactos/", include("contactos.api_urls")), #Contactos API End-point 
 
     path("datos/", include("datos.urls")),
 
@@ -25,6 +25,8 @@ urlpatterns = [
     
     path('api/login/', obtain_auth_token), #Tokens para los usuarios
     
+    path('api/hola/', include('hola.api_urls')), #Alertas API End-point
+
 
 
 ]

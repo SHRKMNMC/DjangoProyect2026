@@ -59,9 +59,10 @@ A partir de aquí ya se pueden emplear las aplicaciones.
 
 - pip install -r requeriments.txt 
 
-#Aplicar migraciones
+#Crear base de datos y aplicar migraciones
 
 - python manage.py migrate
+- python manage.py makemigrations
 
 #Activar servidor y acceder a la web. 
 
