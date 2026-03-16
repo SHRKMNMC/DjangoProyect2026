@@ -112,9 +112,18 @@
 </div>
 
 <!-- Footer -->
-<footer class="mt-5 text-center py-3 bg-white border-top">
-    <a href="/logout/" class="btn btn-danger px-4">Cerrar sesión</a>
-</footer>
+<footer class="mt-5 py-3 border-top bg-white">
+    <div class="container d-flex justify-content-between align-items-center">
 
+        <!-- Botón a la izquierda -->
+        <a href="/logout/" class="btn btn-danger px-4">Cerrar sesión</a>
+
+        <!-- Info del sistema a la derecha -->
+        <div class="text-muted small">
+            <strong>Versión {{ VERSION_APP }}</strong> · Panel personal · {{ user.username }}
+        </div>
+
+    </div>
+</footer>
 </body>
 </html>
