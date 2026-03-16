@@ -63,9 +63,9 @@ A partir de aquí ya se pueden emplear las aplicaciones.
 
 - python manage.py migrate
 
-#En lugar de python global usar venv
+#Activar servidor y acceder a la web. 
 
-- python manage.py runserver  ---> .venv\Scripts\python.exe manage.py runserver
+- python manage.py runserver  / .venv\Scripts\python.exe manage.py runserver (si no se usa python global)
 
 #Crear superusuario
 
@@ -74,3 +74,8 @@ A partir de aquí ya se pueden emplear las aplicaciones.
 #Comprobar
 
 - http://127.0.0.1:8000/admin/
+
+#Acceso a la interfaz API de contactos para desarrolladores
+
+- http://127.0.0.1:8000/api/contactos/
+
