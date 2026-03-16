@@ -47,20 +47,30 @@ A partir de aquí ya se pueden emplear las aplicaciones.
 
 <b>Procedimientos</b>
 
+#Crear entorno virtual y usar python12
+
+- C:\Users\usuario\AppData\Local\Programs\Python\Python312\python.exe -m venv .venv  (Esto depende de si ya tienes la version de Python pero tu ide no la emplea)
+
 #Activar el venv si no está activado
 
 - & .venv\Scripts\Activate.ps1
+
+#Instala todos los requerimientos
+
+- pip install -r requeriments.txt 
+
+#Aplicar migraciones
+
+- python manage.py migrate
 
 #En lugar de python global usar venv
 
 - python manage.py runserver  ---> .venv\Scripts\python.exe manage.py runserver
 
-#Crear entorno virtual y usar python12
+#Crear superusuario
 
-- C:\Users\usuario\AppData\Local\Programs\Python\Python312\python.exe -m venv .venv  (Esto depende de si ya tienes la version de Python pero tu ide no la emplea)
+- python manage.py createsuperuser
 
-- .\.venv\Scripts\Activate.ps1
+#Comprobar
 
-#Instala todos los requerimientos
-
-- pip install -r requeriments.txt 
+- http://127.0.0.1:8000/admin/
