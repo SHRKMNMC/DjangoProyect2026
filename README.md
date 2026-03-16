@@ -51,7 +51,7 @@ A partir de aquí ya se pueden emplear las aplicaciones.
 
 - C:\Users\usuario\AppData\Local\Programs\Python\Python312\python.exe -m venv .venv  (Esto depende de si ya tienes la version de Python pero tu ide no la emplea)
 
-#Activar el venv si no está activado
+#Activar el entorno (venv) si no está activado
 
 - & .venv\Scripts\Activate.ps1
 
