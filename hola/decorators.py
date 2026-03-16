@@ -12,4 +12,6 @@ def solo_moderadores(view_func):
     return wrapper
 
 
-#Sin usar en hola, pero existe para limitar las acciones a usuarios no moderadores
+# Sin usar en hola, pero existe para limitar las acciones a usuarios no moderadores
+
+# {% if user.perfil.rol == "moderador" %} {% endif %} <-- Lineas para ocultar vistas a no moderadores

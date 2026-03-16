@@ -72,10 +72,12 @@
 
 <div class="container mt-4">
 
+
     <!-- Título -->
     <h1 class="fw-bold mb-4">Crear nueva alerta</h1>
 
     <!-- Formulario -->
+    
     <div class="card p-4 mb-4 shadow-sm alert-card">
 
         {% if form.errors %}
@@ -91,6 +93,7 @@
             <button class="boton-verde btn px-4" type="submit">Guardar</button>
         </form>
     </div>
+
 
     <!-- Lista de alertas -->
     <h2 class="mb-3">Alertas</h2>
@@ -129,8 +132,10 @@
                     {% if not m.resuelto %}
                         <a class="btn btn-success btn-sm btn-action" href="{% url 'marcar_resuelto' m.id %}">Marcar ✔</a>
                     {% endif %}
+                    {% if m.creado_por == user %}
                     <a class="btn btn-warning btn-sm btn-action" href="{% url 'editar_mensaje' m.id %}">Editar</a>
                     <a class="btn btn-danger btn-sm btn-action" href="{% url 'borrar_alerta' m.id %}">Borrar</a>
+                    {% endif %}
                 </div>
 
             </li>
