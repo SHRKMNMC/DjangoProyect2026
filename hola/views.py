@@ -39,11 +39,13 @@ def editar_mensaje(request, id):
     return render(request, "hola/editar.html", {"form": form})
 
 
-@login_required
+
+@login_required 
 def borrar_mensaje(request, id):
     mensaje = Mensaje.objects.get(id=id)
     mensaje.delete()
     return redirect('/hola/')
+
 
 @login_required
 def marcar_resuelto(request, id):
