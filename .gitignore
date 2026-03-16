@@ -1,0 +1,37 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Entorno virtual ---
+.venv/
+venv/
+env/
+
+# --- Django ---
+db.sqlite3
+db.sqlite3-journal
+
+# Archivos estáticos generados por collectstatic
+staticfiles/
+
+# --- PyCharm / JetBrains ---
+.idea/
+*.iml
+
+# --- Logs ---
+*.log
+
+# --- Windows ---
+Thumbs.db
+Desktop.ini
+
+# --- Temporales ---
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# --- VS CODE
+.vscode/

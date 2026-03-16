@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mensajes</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'hola/estilos.css' %}">
+
+    <style>
+        body { background-color: #f5f7fa; font-family: 'Segoe UI'; }
+        .header-img { width: 100%; max-height: 220px; object-fit: cover; border-bottom: 4px solid #0d6efd; }
+        .chat-card { border-radius: 14px; transition: .25s; }
+        .chat-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,.12); }
+        .list-group-item { border-radius: 10px !important; margin-bottom: 10px; }
+    </style>
+</head>
+
+<body>
+
+<div class="text-center mb-4">
+    <img src="{% static 'hola/img/portada.png' %}" class="header-img">
+</div>
+
+<div class="text-left my-3 ms-3">
+    <a href="/" class="boton-verde btn px-4">Ir a inicio</a>
+    <a href="/mensajes/nueva/" class="btn btn-primary px-4">Nueva conversación</a>
+
+</div>
+
+
+<div class="container mt-4">
+
+    <h1 class="fw-bold mb-4">Conversaciones</h1>
+
+    <ul class="list-group">
+        {% for c in conversaciones %}
+            <a href="{% url 'chat' c.id %}" class="text-decoration-none">
+                <li class="list-group-item shadow-sm">
+                    <b class="fs-5">
+                        {% if c.usuario1 == user %}
+                            {{ c.usuario2.username }}
+                        {% else %}
+                            {{ c.usuario1.username }}
+                        {% endif %}
+                    </b>
+                </li>
+            </a>
+        {% empty %}
+            <li class="list-group-item text-center">No tienes conversaciones.</li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<footer class="mt-5 text-center py-3 bg-white border-top">
+    <a href="/logout/" class="btn btn-danger px-4">Cerrar sesión</a>
+</footer>
+
+</body>
+</html>
