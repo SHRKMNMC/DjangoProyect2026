@@ -100,7 +100,22 @@
             <a href="/mensajes/" class="text-decoration-none">
                 <div class="card shadow-sm border-0 h-100 app-card text-center py-4">
                     <div class="app-icon mb-3">✉️</div>
-                    <h3 class="fw-bold text-info">Mensajes</h3>
+                    <h3 class="fw-bold text-info">Mensajes
+                        {% if hay_mensajes_nuevos %}
+                            <span style="
+                                position: absolute;
+                                top: -1px;
+                                right: -px;
+                                width: 20px;
+                                height: 20px;
+                                background: red;
+                                border-radius: 50%;
+                                border: 2px solid white;
+                                display: inline-block;
+                                box-shadow: 0 0 4px rgba(0,0,0,0.3);
+                            "></span>
+                        {% endif %}
+                    </h3>
                     <p class="text-muted">Comunícate con otros usuarios</p>
                 </div>
             </a>

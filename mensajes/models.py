@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 class Conversacion(models.Model):
     usuario1 = models.ForeignKey(User, related_name="conversaciones1", on_delete=models.CASCADE)
     usuario2 = models.ForeignKey(User, related_name="conversaciones2", on_delete=models.CASCADE)
+    
+    ultima_lectura_usuario1 = models.DateTimeField(null=True, blank=True)
+    ultima_lectura_usuario2 = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.usuario1.username} ↔ {self.usuario2.username}"

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Conversacion, Mensaje, ConversacionOculta
 from .forms import MensajeForm
+from django.utils import timezone
 
 
 @login_required
@@ -24,6 +25,15 @@ def lista_conversaciones(request):
 @login_required
 def chat(request, id):
     conversacion = get_object_or_404(Conversacion, id=id)
+    
+    # Registrar lectura
+    if request.user == conversacion.usuario1:
+        conversacion.ultima_lectura_usuario1 = timezone.now()
+    else:
+        conversacion.ultima_lectura_usuario2 = timezone.now()
+
+    conversacion.save()
+
 
     # Seguridad: solo los dos usuarios pueden ver la conversación
     if request.user not in [conversacion.usuario1, conversacion.usuario2]:
