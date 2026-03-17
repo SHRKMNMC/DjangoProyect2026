@@ -26,3 +26,12 @@ class Mensaje(models.Model):
 
     def __str__(self):
         return self.texto
+    
+
+class UltimaLecturaAlertas(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    fecha = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"Última lectura de alertas de {self.usuario.username}"
+

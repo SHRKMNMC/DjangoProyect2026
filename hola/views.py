@@ -3,8 +3,16 @@ from .models import Mensaje
 from .forms import MensajeForm
 from django.contrib.auth.decorators import login_required
 
+from django.utils import timezone
+from .models import UltimaLecturaAlertas
+
 @login_required
 def saludo(request):
+    
+    UltimaLecturaAlertas.objects.update_or_create(
+        usuario=request.user,
+        defaults={"fecha": timezone.now()}
+    )
 
     if request.method == "POST":
         form = MensajeForm(request.POST)

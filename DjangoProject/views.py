@@ -10,6 +10,10 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from mensajes.models import Conversacion, Mensaje, ConversacionOculta
 
+from hola.models import Mensaje as Alerta, UltimaLecturaAlertas
+from django.utils import timezone
+
+
 
 @login_required
 def inicio(request):
@@ -44,14 +48,24 @@ def inicio(request):
         if nuevos.exists():
             hay_mensajes_nuevos = True
             break
+        
+    # Última vez que el usuario vio las alertas
+    registro = UltimaLecturaAlertas.objects.filter(usuario=request.user).first()
+
+    if registro:
+        hay_alertas_nuevas = Alerta.objects.filter(
+            resuelto=False,
+            fecha__gt=registro.fecha
+        ).exists()
+    else:
+        # Si nunca ha entrado, todas las alertas pendientes son nuevas
+        hay_alertas_nuevas = Alerta.objects.filter(resuelto=False).exists()
+
 
     return render(request, "inicio.html", {
-        "hay_mensajes_nuevos": hay_mensajes_nuevos
+        "hay_mensajes_nuevos": hay_mensajes_nuevos,
+        "hay_alertas_nuevas": hay_alertas_nuevas,
     })
-
-
-
-
 
 
 def iniciar_sesion(request):

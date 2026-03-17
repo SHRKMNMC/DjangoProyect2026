@@ -77,7 +77,22 @@
         <div class="col-md-5 col-lg-4">
             <a href="/hola/" class="text-decoration-none">
                 <div class="card shadow-sm border-0 h-100 app-card text-center py-4">
-                    <div class="app-icon mb-3">⚠️</div>
+                    <div class="app-icon mb-3">⚠️
+                        {% if hay_alertas_nuevas %}
+                            <span style="
+                                position: absolute;
+                                top: -1px;
+                                right: -px;
+                                width: 20px;
+                                height: 20px;
+                                background: red;
+                                border-radius: 50%;
+                                border: 2px solid white;
+                                display: inline-block;
+                                box-shadow: 0 0 4px rgba(0,0,0,0.3);
+                            "></span>
+                        {% endif %}
+                    </div>
                     <h3 class="fw-bold text-success">Alertas</h3>
                     <p class="text-muted">Gestiona avisos y tareas importantes</p>
                 </div>
